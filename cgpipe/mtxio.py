@@ -36,6 +36,7 @@ def load_matrix(url: str, hint_filename: str = None):
             return mtx_data
         except IOError:
             mtx_data = scio.mmread('data/' + mtx_name + '/' + hint_filename).tocsr()
+
             save_npz('data/' + mtx_name + '/' + hint_filename, mtx_data)
             return mtx_data
 
@@ -45,5 +46,6 @@ def load_matrix(url: str, hint_filename: str = None):
             return mtx_data
         except IOError:
             mtx_data = scio.mmread(str(mtx_file)).tocsr()
+
             save_npz(mtx_file, mtx_data)
             return mtx_data
